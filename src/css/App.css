@@ -1,0 +1,180 @@
+@font-face {
+  font-family: cherrydays;
+  src: url("./Fonts/Cherry\ Days.ttf");
+}
+
+@font-face {
+  font-family: warning;
+  src: url("./Fonts/Take Warning.otf");
+}
+
+body
+{
+  background: url('../images/background.png'); 
+}
+
+.App 
+{
+  text-align: center;
+}
+
+.parent__container
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container
+{
+  background: rgb(249, 189, 111);
+  border-radius: 15px;
+  width: 500px;
+  height: 170px;
+}
+
+.title
+{
+  color: rgb(38, 137, 140);
+  font-family: cherrydays, sans-serif;
+}
+
+.input__search
+{
+  padding: 8px;
+  width: 360px;
+  margin: auto;
+  border: 1px solid rgb(249, 189, 111);
+  border-radius: 7px;
+  font-size: 16px;
+  caret-color: royalblue;
+}
+
+.input__search:focus
+{
+  outline: none;
+}
+
+.info__text
+{
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(34, 92, 92);
+}
+
+.not__found
+{
+  color: rgb(225, 30, 30);
+  font-family: warning, sans-serif;
+  font-size: 50px;
+}
+
+.clear__img
+{
+  margin-top: 25px;
+  width: 500px;
+  height: 350px;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.clear__container
+{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.clear__data
+{
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  color: rgb(19, 70, 132);
+  background-color: #ffffff10;
+  backdrop-filter: 12px;
+  -webkit-backdrop-filter: blur(12px);
+  width: 170px;
+}
+
+.clear__temp
+{
+  border: 1px solid rgb(63, 90, 94);
+  border-radius: 8px;
+}
+
+.clouds__img
+{
+  margin-top: 25px;
+  width: 500px;
+  height: 350px;
+  border-radius: 0px 0px 15px 15px;
+
+}
+
+.clouds__container
+{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.clouds__data
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  font-weight: 600;
+  color: rgb(0, 4, 10);
+  background-color: #ffffff23;
+  backdrop-filter: 12px;
+  -webkit-backdrop-filter: blur(12px);
+  width: 170px;
+  border-radius: 15px;
+}
+
+.clouds__temp
+{
+  border: 2px solid rgb(39, 44, 46);
+  border-radius: 8px;
+}
+
+.rain__img
+{
+  margin-top: 25px;
+  width: 500px;
+  height: 350px;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.rain__container
+{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.rain__data
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  background-color: #ffffff35;
+  backdrop-filter: 12px;
+  -webkit-backdrop-filter: blur(12px);
+  width: 170px;
+  border-radius: 15px;
+}
+
+.rain__temp
+{
+  border: 2px solid rgb(48, 45, 231);
+  border-radius: 8px;
+}

@@ -1,7 +1,4 @@
-import { useState } from "react";
-import cleanSky from "../images/clean.jpg";
-import cloudSky from "../images/cloud.webp";
-import rain from "../images/rain.jpg";
+import React,{ useState } from "react";
 
 export const Weather = () => {
 
@@ -11,72 +8,48 @@ export const Weather = () => {
 
     const getWeather = (event) => {
         if(event.key == 'Enter') {
-            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=${apiKey}`)
-            .then(res => res.json())
-            .then(data => {
-                setWeatherData(data)
-
-                setCity('');
-            })
+            try {
+                fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&APPID=${apiKey}`)
+                .then(res => res.json())
+                .then(data => {
+                    setWeatherData(data)
+                    setCity('');
+                })
+            } catch (error) {
+                console.error('Error fetching data:', error)
+            }
         }
     }
 
+
     return(
-        <div className="parent__container">
-        <div className="container">
-            <h2 className="title">Welcome to Weather app</h2>
-          <input
-            className="input__search"
-            placeholder="Enter City..."
-            value={city}
-            onChange={(e) => {setCity(e.target.value)}} 
-            onKeyPress={getWeather}
-          />
-
-        {typeof weatherData.main === 'undefined' ? (
-            <div>
-                <p className="info__text">Please Enter and get Weather...</p>
+        <>
+            <div className="header">
+                <h1>Welcome to weather app</h1>
+                <input 
+                    type="search" 
+                    placeholder="Enter City..."
+                    value={city}
+                    onChange={(e) => {setCity(e.target.value)}}
+                    onKeyPress={getWeather}
+                />
             </div>
-        ) : (
-            <div>
-                {weatherData.weather[0].main === 'Clear' ? (
-                    <div className="clear__container">
-                       <img src={cleanSky} className="clear__img"/>
-                       <div className="clear__data">
-                          <p>{weatherData.sys.country}, {""} {weatherData.name}</p>
-                          <p>{weatherData.weather[0].main}</p>
-                          <p className="clear__temp">{Math.floor(weatherData.main.temp)} °F</p>
-                       </div>
-                    </div>
-                ) : (<></>)}
-                {weatherData.weather[0].main === 'Clouds' ? (
-                    <div className="clouds__container">
-                       <img src={cloudSky} className="clouds__img"/>
-                       <div className="clouds__data">
-                          <p>{weatherData.sys.country}, {""} {weatherData.name}</p>
-                          <p>{weatherData.weather[0].main}</p>
-                          <p className="clouds__temp">{Math.floor(weatherData.main.temp)} °F</p>
-                       </div>
-                    </div>
-                ) : (<></>)}
-                {weatherData.weather[0].main === 'Rain' ? (
-                    <div className="rain__container">
-                       <img src={rain} className="rain__img"/>
-                       <div className="rain__data">
-                          <p>{weatherData.sys.country}, {""} {weatherData.name}</p>
-                          <p>{weatherData.weather[0].main}</p>
-                          <p className="rain__temp">{Math.floor(weatherData.main.temp)} °F</p>
-                       </div>
-                    </div>
-                ) : (<></>)}
+            <div className="body">
+                {typeof weatherData.main === 'undefined' ? (
+                    <p>Please enter and get the weather...</p>
+                ) : (
+                    <>
+                        <p>Location: {weatherData.name}</p>
+                        <p>Temperature: {weatherData.main.temp}°F</p>
+                        <p>Feels Like: {weatherData.main.feels_like}°F</p>
+                        <p>Weather: {weatherData.weather[0].main}, {weatherData.weather[0].description}</p>
+                        <p>Humidity: {weatherData.main.humidity}%</p>
+                        <p>Wind Speed: {weatherData.wind.speed} mph</p>
+                    </> 
+                )}
 
-            </div>  
-        )}
-
-        {weatherData.cod === '404' ? (
-            <p className="not__found">{weatherData.message}</p>
-        ) : (<></>)}
-        </div>
-        </div>
+                {weatherData.cod === '404' && <p>No results found.<br />Try searching for a city, country or point of interest.</p>}
+            </div>
+        </>
     );
 }

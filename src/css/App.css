@@ -7,7 +7,7 @@
 
 body 
 {
-  background: #0B0C10;
+  background: #373E98;
   font-family: Comic Sans MS, Comic Sans, cursive;
 }
 
@@ -23,16 +23,16 @@ body
 { 
   width: 700px;
   height: 230px;
-  background: #1F2833;
+  background: #fee36e;
   text-align: center;
   padding: 30px;
   border-radius: 0 0 20px 20px;
 }
 
-.header
+.weather-header
 {
   position: relative;
-  color: #66FCF1;
+  color: #2a2a2a;
   font-size: 23px;
 }
 
@@ -45,23 +45,61 @@ body
   border-radius: 9999em;
 }
 
-.header > input
+.weather-header > input
 {
   width: 450px;
   height: 45px;
   border-radius: 15px;
   outline: none;
-  border: 3px solid #45A29E;
+  border: 3px solid #373E98;
   padding-left: 20px;
   font-size: 22px;
   margin-top: 30px;
 }
 
-.header > input::-webkit-search-cancel-button 
+.weather-header > input::-webkit-search-cancel-button 
 {
   -webkit-appearance: none;
+} 
+
+.weather-body
+{
+  position: relative;
+  margin-top: 140px;
+  background: #f16775;
+  height: 350px;
+  border-radius: 20px;
 }
 
+.weather-body > ul {
+  list-style-type: none;
+  font-size: 25px;
+  padding-top: 10px;
+}
+
+.weather-body ul > li {
+  padding-top: 12px;
+}
+
+.weather-body ul > li:nth-child(2) {
+  margin-top: 30px;
+}
+
+.weather-body li > span {color: #eee; font-weight: bold;}
+
+.not-found
+{
+  position: relative;
+  margin-top: 100px;
+  height: 90px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #ff4d4d;
+  border: 1px solid #cc0000;
+  padding: 13px 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
 /* @media screen and (min-width: 1024px) {
 }
@@ -77,11 +115,11 @@ body
     padding: 35px 15px 0 15px;
   }
 
-  .header {font-size: 3.1vw;}
+  .weather-header {font-size: 3.1vw;}
 
-  .header > input{width: 80%;}
+  .weather-header > input{width: 80%;}
 }
 
 @media screen and (max-width: 525px) {
-  .header > input {font-size: 4vw;}
+  .weather-header > input {font-size: 4vw;}
 }

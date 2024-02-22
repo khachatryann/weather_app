@@ -12,8 +12,7 @@
 
 body 
 {
-  background-color: #373E98;
-  /* background: url('/public/images/cloud-background.png'); */
+  background: #373E98;
   font-family: comical;
 }
 
@@ -75,7 +74,6 @@ body
   background: #f16775;
   height: 350px;
   border-radius: 20px;
-  background: url('/public/images/cloud-background.png');
 }
 
 .weather-body > ul {
@@ -93,8 +91,6 @@ body
   margin-top: 30px;
 }
 
-
-
 .weather-body li > span {color: #eee; font-weight: bold;}
 
 .not-found
@@ -111,11 +107,33 @@ body
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* @media screen and (min-width: 1024px) {
+.loader-container
+{
+  width: 100%;
+  height: 100vh;
+  background: #373E98;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-} */
+.loader-spinner > img
+{
+  width: 120px;
+  animation: loader 4s linear infinite;
+}
+
+@keyframes loader {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 @media screen and (max-width: 767px) {  
   .container

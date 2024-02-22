@@ -1,3 +1,8 @@
+@font-face {
+  font-family: comical;
+  src: url('../fonts/LT\ Comical.ttf');
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +12,9 @@
 
 body 
 {
-  background: #373E98;
-  font-family: Comic Sans MS, Comic Sans, cursive;
+  background-color: #373E98;
+  /* background: url('/public/images/cloud-background.png'); */
+  font-family: comical;
 }
 
 .parent-container
@@ -22,7 +28,7 @@ body
 .container 
 { 
   width: 700px;
-  height: 230px;
+  height: 230px;  
   background: #fee36e;
   text-align: center;
   padding: 30px;
@@ -33,7 +39,7 @@ body
 {
   position: relative;
   color: #2a2a2a;
-  font-size: 23px;
+  font-size: 27px;
 }
 
 .search-input
@@ -69,21 +75,25 @@ body
   background: #f16775;
   height: 350px;
   border-radius: 20px;
+  background: url('/public/images/cloud-background.png');
 }
 
 .weather-body > ul {
   list-style-type: none;
-  font-size: 25px;
-  padding-top: 10px;
+  font-size: 30px;
+  padding-top: 13px;
+  width: 100%;
 }
 
 .weather-body ul > li {
-  padding-top: 12px;
+  padding-top: 17px;
 }
 
 .weather-body ul > li:nth-child(2) {
   margin-top: 30px;
 }
+
+
 
 .weather-body li > span {color: #eee; font-weight: bold;}
 
@@ -92,11 +102,11 @@ body
   position: relative;
   margin-top: 100px;
   height: 90px;
-  font-size: 20px;
+  font-size: 24px;
   color: #fff;
   background-color: #ff4d4d;
   border: 1px solid #cc0000;
-  padding: 13px 15px;
+  padding: 20px 15px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -115,11 +125,21 @@ body
     padding: 35px 15px 0 15px;
   }
 
-  .weather-header {font-size: 3.1vw;}
+  .weather-header {font-size: 3.5vw;}
 
   .weather-header > input{width: 80%;}
+
+  .not-found {font-size: 3.5vw;}
 }
 
 @media screen and (max-width: 525px) {
   .weather-header > input {font-size: 4vw;}
+  .not-found {padding: 25px 15px;}
+  .weather-body ul > li {
+    font-size: 5.5vw;
+  }
+}
+
+@media screen and (max-width:450px) {
+  .weather-body > ul {padding-top: 30px;}
 }

@@ -1,8 +1,9 @@
-import React,{ useState, useEffect } from "react";
+import React,{ useState, useEffect, useRef } from "react";
 
 export const Weather = () => {
 
     const apiKey="49fa40898a6aebcad9c875eeb9f6b5d3";
+    const inputRef = useRef(null);
     const [weatherData, setWeatherData] = useState([]);
     const [city, setCity] = useState('');
     const [loading, setLoading] = useState(false);
@@ -15,6 +16,7 @@ export const Weather = () => {
                 .then(data => {
                     setWeatherData(data)
                     setCity('');
+                    inputRef.current.blur();
                 })
             } catch (error) {
                 console.error('Error fetching data:', error)
@@ -41,6 +43,7 @@ export const Weather = () => {
                 <div className="weather-header">
                     <h1>Welcome to weather app</h1>
                     <input 
+                        ref={inputRef}
                         type="search" 
                         placeholder="Enter the city, country, etc.."
                         value={city}
